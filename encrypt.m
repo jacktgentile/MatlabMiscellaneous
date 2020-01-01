@@ -11,6 +11,8 @@ if isa(inputStr, 'string')
     inputStr = inputStr{1};
 end
 
+multKey = uint32(multKey);
+addKey = uint32(addKey);
 inputStr = upper(inputStr);
 outputStr = inputStr;
 
@@ -26,7 +28,7 @@ function e = enc_letter(c, m, a)
 if ~isletter(c)
     e = c;
 else
-    x = uint8(c) - 65;
+    x = uint32(c) - 65;
     x = mod((x * m) + a, 26);
     e = char(x + 65);
 end
